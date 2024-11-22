@@ -1,0 +1,105 @@
+@use 'layout';
+@use 'mixins';
+
+$base-color: #ffffff;
+$primary-color: #4d861f;
+$delete-color: #ff5d5d;
+$theme-color: #1f1f1f;
+$text-color: #404040;
+$indicator-color: #C5C5C5;
+
+
+// login page
+.login__page{
+    display: grid;
+    margin: 0 auto;
+}
+
+.login-newsify__logo{
+    display: grid;
+    margin: 0 auto;
+    margin-top: 2rem;
+}
+
+.login__header{
+    text-align: center;
+    font-size: 38px;
+    font-family: 'Playfair Display';
+    color: $text-color;
+}
+
+.login__txt{
+    text-align: center;
+    font-size: 16px;
+    font-family: 'Open Sans';
+    color: $text-color;
+    margin-top: 2rem;
+}
+
+// login buttons
+
+.login__button-facebook{
+    display: grid;
+    margin: 0 auto;
+    margin-top: 3rem;
+}
+
+.login__button-google{
+    display: grid;
+    margin: 0 auto;
+    margin-top: 1rem;
+}
+
+.button__facebook{
+    width: 365px;
+    height: 62px;
+    background-color: $base-color;
+    border-color: $indicator-color;
+    border-radius: 40px;
+    border-style: solid;
+    font-family: 'Open sans';
+}
+
+.button__google{
+    width: 365px;
+    height: 62px;
+    background-color: $base-color;
+    border-color: $indicator-color;
+    border-radius: 40px;
+    border-style: solid;
+    font-family: 'Open sans';
+}
+
+// option
+.or__txt{
+    margin-top: 2rem;
+}
+.or__txt{
+    text-align: center;
+    font-size: 16px;
+    font-family: 'Open Sans';
+    color: $text-color;
+}
+
+// sign in
+
+.login__other-options{
+    display: grid;
+    margin: 0 auto;
+    margin-top: 2rem;
+}
+
+.login__sign-in{
+    width: 365px;
+    height: 62px;
+    background-color: $primary-color;
+    color: $base-color;
+    border-style: none;
+    border-radius: 40px;
+    font-family: 'Open Sans';  
+}
+
+.sign-up-link{
+    text-decoration: none;
+    color: $primary-color;
+}

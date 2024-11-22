@@ -1,0 +1,28 @@
+{
+  "name": "newsify-peterb69420",
+  "version": "1.0.0",
+  "description": "I dette projekt skal I udvikle en nyheds-webapplikation som er optimeret til den mobile skærm. I applikationen skal der listes nyheder fra [The New York Times](https://developer.nytimes.com/apis) i et kategoriseret nyhedsoverblik. Det skal være muligt at vælge (klikke på) en nyhed i listen, hvorefter brugeren vil blive sendt videre til den fulde artikel på nytimes.com.<br><br>\r Nyhedsartikler skal også kunne gemmes i et privat nyhedsarkiv. Gem funktionen bliver synlig når der swipes til venstre ([se illustration](./assets/swipe-illustration.png \"swipe illustration\")) på en nyhed. Fra det private nyhedsarkiv kan ligeledes tilgås artikler og artikler kan slettes. Slet funktionen bliver synlig når der swipes til venstre ([se illustration](./assets/swipe-illustration.png \"swipe illustration\")) på en arkiveret nyhed.<br><br>\r Fra settings panelet skal brugeren have mulighed for at administrere det kategoriserede nyhedsoverblik ved at slå visning til eller fra for nyhedskategorier. Fra settings panelet skal brugeren også kunne skifte mellem lyst og mørkt tema.\r <br>",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest",
+    "build": "webpack",
+    "dev": "webpack serve"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "css-loader": "^7.1.2",
+    "file-loader": "^6.2.0",
+    "html-loader": "^5.1.0",
+    "html-webpack-plugin": "^5.6.3",
+    "jest": "^29.7.0",
+    "mini-css-extract-plugin": "^2.9.2",
+    "sass": "^1.81.0",
+    "sass-loader": "^16.0.3",
+    "style-loader": "^4.0.0",
+    "webpack": "^5.96.1",
+    "webpack-cli": "^5.1.4",
+    "webpack-dev-server": "^5.1.0"
+  }
+}
