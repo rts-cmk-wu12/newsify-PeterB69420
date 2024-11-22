@@ -1,0 +1,154 @@
+@use 'layout';
+@use 'mixins';
+
+
+// variables
+$base-color: #ffffff;
+$primary-color: #4d861f;
+$delete-color: #ff5d5d;
+$theme-color: #1f1f1f;
+$text-color: #404040;
+$indicator-color: #C5C5C5;
+
+body {
+    background-color: $base-color;
+}
+
+#wrapper {
+    width: 393px;
+    height: 780px;
+    margin: 0 auto;
+}
+
+// Splash screen
+
+#splash-screen {
+    background-color: $base-color;
+    animation-name: fadeOut;
+    animation-duration: 3s;
+    animation-fill-mode: forwards;
+}
+
+@keyframes fadeOut {
+    100% {
+        opacity: 0;
+    }
+
+    0% {
+        opacity: 1;
+    }
+}
+
+.splash-screen__header{
+    text-align: center;
+    margin-top: 1rem;
+    font-family: 'Playfair Display';
+    font-size: 48px;
+    color: $text-color;
+}
+
+.splash-screen__logo {
+    display: grid;
+    margin: 0 auto;
+    margin-top: 12rem
+}
+
+//onboarding
+
+.onboarding__section {
+    display: grid;
+    margin: 0 auto;
+    
+}
+
+.onboarding__header {
+    margin-top: 1rem;
+    text-align: center;
+    font-size: 32px;
+    font-family: 'Playfair Display';
+    color: $text-color;
+}
+
+.onboarding__txt {
+    margin-top: 2rem;
+    text-align: center;
+    font-size: 18px;
+    font-family: 'Open Sans';
+    color: $text-color;
+}
+
+// site indicators
+
+.site-indicators {
+    display: flex;
+    gap: 10px;
+    margin: 0 auto;
+    margin-top: 2rem;
+}
+
+.indicator__active {
+    width: 66px;
+    height: 16px;
+    background-color: $primary-color;
+    border-radius: 16px;
+}
+
+.indicator {
+    width: 16px;
+    height: 16px;
+    background-color: $indicator-color;
+    border-radius: 16px;
+}
+
+// buttons
+
+.onboarding__buttons {
+    display: flex;
+    margin: 0 auto;
+    margin-top: 2rem;
+    gap: 20px;
+}
+
+.onboarding__skip {
+    width: 166px;
+    height: 62px;
+    border-color: $primary-color;
+    background-color: $base-color;
+    border-radius: 40px;
+    border-style: solid;
+    color: $primary-color;
+    font-family: 'Open Sans';
+    font-size: 18px;
+    place-content: center;
+    text-align: center;
+}
+
+.onboarding__skip-link{
+    cursor: default;
+    text-decoration: none;
+}
+
+.onboarding__continue {
+    width: 166px;
+    height: 62px;
+    background-color: $primary-color;
+    color: $base-color;
+    border-style: none;
+    border-radius: 40px;
+    font-family: 'Open Sans';
+    font-size: 18px;
+}
+
+// second onboarding page
+
+.onboarding-screen.active {
+    display: block;
+}
+
+.onboarding-screen {
+    display: none;
+}
+
+#onboarding-1{
+    display: none;
+}

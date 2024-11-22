@@ -1,0 +1,152 @@
+@use 'layout';
+@use 'mixins';
+
+
+// variables
+$base-color: #ffffff;
+$primary-color: #4d861f;
+$delete-color: #ff5d5d;
+$theme-color: #1f1f1f;
+$text-color: #404040;
+$indicator-color: #C5C5C5;
+$searchbar-color: #D9D9D9;
+
+// header
+.header__home{
+    margin-top: 2rem;
+}
+.header__logo{
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+}
+
+.header__image{
+    width: 19px;
+    height: 27px;
+}
+
+.header__title{
+    font-family: 'Playfair display';
+    font-weight: bolder;
+    font-size: 24px;
+}
+
+.header__search-bar{
+    display: flex;
+    justify-content: center;
+}
+
+.search__bar{
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    width: 345px;
+    height: 46px;
+    border-style: none;
+    border-radius: 4px;
+    background-color: #d9d9d945;
+    outline: none;
+}
+
+input::placeholder{
+    display: flex;
+    text-align: center;
+    font-family: 'Open sans';
+    font-size: 14px;
+}
+
+
+
+// articles
+
+.article__container{
+    width: 393px;
+    position: relative;
+}
+
+.newsArticleBox__headingbox{
+    display: flex;
+    gap: 1rem;
+    height: 60px;
+    border-top: solid $indicator-color;
+    border-bottom: solid $indicator-color;
+    place-items: center;
+}
+.newsArticleBox__heading{
+    font-family: 'Playfair display';
+    font-size: 16px;
+    color: $text-color;
+}
+
+.newsArticleBox__image{
+    width: 18px;
+    height: 26px;
+}
+
+.news-image{
+    width: 72px;
+    height: 72px;
+    border-radius: 8px;
+}
+
+.newsArticleBox__arrow{
+    display: grid;
+    margin: 0 auto;
+}
+
+section{
+    display: flex;
+    height: 72px;
+    gap: 1rem;
+    margin: 1rem;
+    margin-bottom: 2rem;
+}
+
+h3{
+    font-size: 13px;
+    font-family: 'Playfair display';  
+}
+
+p{
+    font-size: 10px;
+    font-family: 'Open sans';
+}
+.newsArticle{
+ 
+    &--displayNone{
+        display: none;
+    }
+}
+
+//footer
+
+.footer__home{
+    width: 393px;
+    height: 90px;
+    position: fixed;
+    background-color: white;
+    top: 90%;
+    place-content: center;
+    box-shadow: 0px -5px 15px rgba(0, 0, 0, 0.095)
+}
+
+.links__home{
+    display: grid;
+    margin: 0 auto;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2%;
+}
+
+.footer__link{
+    text-decoration: none;
+    color: $text-color;
+}
+
+.footer-link__active{
+    text-decoration: none;
+    color: $primary-color;
+}
+
+.fa-house{
+    color: $primary-color;
+}
