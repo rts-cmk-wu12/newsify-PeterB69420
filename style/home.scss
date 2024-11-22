@@ -39,6 +39,7 @@ $searchbar-color: #D9D9D9;
 
 .search__bar{
     margin-top: 2rem;
+    margin-bottom: 2rem;
     width: 345px;
     height: 46px;
     border-style: none;
@@ -48,14 +49,19 @@ $searchbar-color: #D9D9D9;
 }
 
 input::placeholder{
+    display: flex;
+    text-align: center;
     font-family: 'Open sans';
     font-size: 14px;
 }
 
+
+
 // articles
 
-.newsArticleBox {
-    padding: 1.5rem;
+.article__container{
+    width: 393px;
+    position: absolute;
 }
 
 .newsArticleBox__headingbox{
@@ -65,7 +71,6 @@ input::placeholder{
     border-top: solid $indicator-color;
     border-bottom: solid $indicator-color;
     place-items: center;
-    margin-bottom: 1rem;
 }
 .newsArticleBox__heading{
     font-family: 'Playfair display';
@@ -105,4 +110,43 @@ h3{
 p{
     font-size: 10px;
     font-family: 'Open sans';
+}
+.newsArticle{
+ 
+    &--displayNone{
+        display: none;
+    }
+}
+
+//footer
+
+.footer__home{
+    width: 393px;
+    height: 90px;
+    position: fixed;
+    background-color: white;
+    top: 90%;
+    place-content: center;
+    box-shadow: 0px -5px 15px rgba(0, 0, 0, 0.095)
+}
+
+.links__home{
+    display: grid;
+    margin: 0 auto;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2%;
+}
+
+.footer__link{
+    text-decoration: none;
+    color: $text-color;
+}
+
+.footer-link__active{
+    text-decoration: none;
+    color: $primary-color;
+}
+
+.fa-house{
+    color: $primary-color;
 }
