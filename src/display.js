@@ -1,90 +1,46 @@
-import {fetchNews} from "./home.js"
-require("../style/home.scss")
- 
- 
+import { fetchNews } from "./home.js";
+require("../style/home.scss");
 
-const allArticles = document.querySelector(".article__container")
-const data = await fetchNews()
-const categories = []
-const articles = data.results
-console.log(articles)
+document.addEventListener("DOMContentLoaded", async () => {
+    const allArticles = document.querySelector(".article__container");
+    console.log("article__container element:", allArticles); // Debugging log
 
-articles.forEach(element => {
-   
-    
-    //stopper hvis kategorien allerede oprettet
-    if(categories.includes(element.section)){
-        
-        addNewArticle(element.section, element)
-        
-        return
+    if (!allArticles) {
+        console.error("Element with class 'article__container' not found. Ensure it exists in the HTML and is loaded before this script.");
+        return;
     }
 
-    categories.push(element.section)
-    const articleDiv = document.createElement("article");
-    const articleHeadingBox = document.createElement("div");
-    const articleHeading = document.createElement("h2");
-    const articleHeadingArrow = document.createElement("i");
-    const articleHeadingImg = document .createElement("img")
-    articleHeadingImg.setAttribute("src", "./images/newsifylogosmall.png")
-    articleHeadingArrow.classList.add("fa-solid", "fa-chevron-left");
-    articleHeading.textContent = element.section;
-   
-    articleDiv.classList.add("newsArticleBox");
-    articleDiv.classList.add(element.section)
-    articleHeadingBox.classList.add("newsArticleBox__headingbox");
-    articleHeading.classList.add("newsArticleBox__heading");
-    articleHeadingArrow.classList.add("newsArticleBox__arrow");
-    articleHeadingImg.classList.add("newsArticleBox__image")
- 
- 
-    articleHeadingBox.appendChild(articleHeadingImg);
-    articleHeadingBox.appendChild(articleHeading);
-    
-    articleHeadingBox.appendChild(articleHeadingArrow);
-    articleDiv.appendChild(articleHeadingBox);
- 
-    allArticles.appendChild(articleDiv);
-    articleHeadingArrow.addEventListener("click", dropNewsDown)
-    addNewArticle(element.section, element)
-    
-});
- 
-function addNewArticle(elementname, element){
-    console.log(element)
-    const group = document.querySelector("."+elementname)
-   
-    const newsArticle = document.createElement("section")
-    const newsImage = document.createElement("img")
-    const newsHeading = document.createElement("h3")
-    const newsText = document.createElement("p")
-    const imageLink =element.multimedia[0].url
-    newsImage.setAttribute("src", imageLink)
-    newsHeading.textContent = element.title
-    newsText.textContent = element.abstract
-    
- 
- 
- 
-    
-    newsArticle.appendChild(newsImage)
-    newsArticle.appendChild(newsHeading)
-    newsArticle.appendChild(newsText)
-    group.appendChild(newsArticle)
-   
-    newsArticle.addEventListener("click", ()=>{
-        window.open( element.url);
-    })
-}
- 
-console.log(categories)
- 
-function dropNewsDown(){
-    console.log("yes")
-}
- 
-function openArticle(){
-    this
-}
+    let data;
+    try {
+        data = await fetchNews();
+        if (!data || !data.results || !Array.isArray(data.results)) {
+            console.error("Invalid data structure returned from fetchNews:", data);
+            return;
+        }
+    } catch (error) {
+        console.error("Error fetching news:", error);
+        return;
+    }
 
-// Credit: Benjamin Jasek Smith
+    const articles = data.results;
+    console.log(articles);
+
+    articles.forEach((element) => {
+        const newsArticle = document.createElement("section");
+        const newsImage = document.createElement("img");
+        const newsHeading = document.createElement("h3");
+        const newsText = document.createElement("p");
+
+        const imageLink = element.multimedia && element.multimedia[0] ? element.multimedia[0].url : "./images/placeholder.png";
+        newsImage.setAttribute("src", imageLink);
+        newsHeading.textContent = element.title;
+        newsText.textContent = element.abstract;
+
+        newsArticle.classList.add("newsArticle");
+        newsArticle.appendChild(newsImage);
+        newsArticle.appendChild(newsHeading);
+        newsArticle.appendChild(newsText);
+
+        allArticles.appendChild(newsArticle);
+    });
+});

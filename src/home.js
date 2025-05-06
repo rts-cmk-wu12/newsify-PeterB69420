@@ -2,7 +2,7 @@ require("../style/main.scss");
 require("../style/home.scss");
 
 const API_URL = "https://api.nytimes.com/svc/topstories/v2/arts.json?api-key=A96OnmG6coXjgi6Hcr90iWAFDFNcOUoO";
-const API_KEY = "A96OnmG6coXjgi6Hcr90iWAFDFNcOUoO";
+// Removed unused API_KEY
 export async function fetchNews() {
     const response = await fetch(API_URL)
  
@@ -22,7 +22,11 @@ console.log(await fetchNews())
 
  
 
-const allArticles = document.querySelector(".article__container")
+const allArticles = document.querySelector(".article__container");
+if (!allArticles) {
+    console.error("Error: .article__container element not found in the DOM.");
+    throw new Error(".article__container element is missing.");
+}
 const data = await fetchNews()
 const categories = []
 const articles = data.results
