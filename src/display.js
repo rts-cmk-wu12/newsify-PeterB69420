@@ -10,20 +10,14 @@ document.addEventListener("DOMContentLoaded", async () => {
         return;
     }
 
-    let data;
-    try {
-        data = await fetchNews();
-        if (!data || !data.results || !Array.isArray(data.results)) {
-            console.error("Invalid data structure returned from fetchNews:", data);
-            return;
-        }
-    } catch (error) {
-        console.error("Error fetching news:", error);
+    const data = await fetchNews();
+    if (!data || !data.results || !Array.isArray(data.results)) {
+        console.error("Invalid or empty data structure returned from fetchNews:", data);
         return;
     }
 
     const articles = data.results;
-    console.log(articles);
+    console.log("Articles to render:", articles); // Debugging log
 
     articles.forEach((element) => {
         const newsArticle = document.createElement("section");
@@ -33,8 +27,8 @@ document.addEventListener("DOMContentLoaded", async () => {
 
         const imageLink = element.multimedia && element.multimedia[0] ? element.multimedia[0].url : "./images/placeholder.png";
         newsImage.setAttribute("src", imageLink);
-        newsHeading.textContent = element.title;
-        newsText.textContent = element.abstract;
+        newsHeading.textContent = element.title || "No Title Available";
+        newsText.textContent = element.abstract || "No Description Available";
 
         newsArticle.classList.add("newsArticle");
         newsArticle.appendChild(newsImage);
